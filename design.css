@@ -1,0 +1,502 @@
+/**
+ * NOT IE COMPATIBLE!
+ * 
+ * References:
+ * Float theory: http://www.smashingmagazine.com/2007/05/01/css-float-theory-things-you-should-know/
+ * Selectors (class, id, child, descendent): http://css.maxdesign.com.au/selectutorial/selectors_descendant.htm
+ * http://oli.jp/
+ * http://webdeveloper2.com/2008/05/experiment-2-semantic-blog-template-part-3/
+ * http://diveintohtml5.org/semantics.html
+ * http://www.kryogenix.org/code/browser/lir/
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font: 80% "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
+	background: __background__ url('images/background.png');
+	color: __text__;
+	width: 100%;
+}
+
+/*
+ * 
+ * http://csarven.ca/hiding-email-addresses
+ * http://www.explainth.at/en/tricks/cheatmail.shtml
+ * http://www.sciencefairstl.org/contact-us
+ * http://juice10.com/blog/articles/2006/11/13/semantic-spam-proof-email-display
+ */
+body > a { display: none; }
+#contact del { display: none;}
+
+.dokuwiki a { 
+	color: #5C5C5C; 
+	text-decoration: none;
+}
+
+.dokuwiki a:hover {
+	color: #9a9a9a;
+}
+
+/*
+ ############################################################################
+ MAIN NAVIGATION
+ ############################################################################ 
+*/
+
+/**
+ * In order to show the background image, we have to expand the main nav DIV to actually encapsulate the
+ * floating items.
+ * 
+ * Option 1: using {width:100%; overflow:auto;} -- http://www.quirksmode.org/css/clearing.html
+ * NOT USED! Failed with Firefox.
+ */
+body .dokuwiki > nav {
+	display: block;
+	width: 100%;
+	overflow:hidden; /* This is for centering the categories menu */
+	top: -1px;
+	background-color: #1F1F1F;
+	color: #3D3D3D;
+}
+
+/**
+ * In order to show the background image, we have to expand the the main nav DIV to actually encapsulate the
+ * floating items.
+ * 
+ * Option 2: using all of the below to create -- http://www.positioniseverything.net/easyclearing.html
+ */
+nav:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+nav > span {
+  float: left;
+}
+
+span.breadcrumbs {
+	position: absolute;
+	top: 4px;
+	left: 5px;
+}
+
+.dokuwiki > nav ul {
+	list-style-type: none;
+}
+
+.dokuwiki > nav li {
+	float: left;
+	margin: 3px 2px 3px 0;
+}
+
+nav ul#icons li {
+  float: right;
+}
+
+/**
+ * Centering this is done http://www.cssplay.co.uk/menus/centered.html\
+ * The asymmetric left/right positions are to accomodate the breadcrumb menu
+ */
+nav ul#categories {
+	position: relative;
+	left: 50%;
+	float: left;
+}
+
+nav ul#categories li {
+	position: relative;
+	right: 50%;
+}
+
+#icons a:hover { opacity: 1; }
+
+#icons a {
+	width: 16px;
+	height: 16px;
+	background-image: url("images/favicons_16.png");
+	display: block;
+	margin: 2px;
+	opacity: .3;
+}
+
+#icons span {
+	float: left;
+	visibility: hidden;
+	height: 0px;
+}
+
+/*
+#email-icon 	a 	{ background-position: -168px; }
+#twitter-icon 	a 	{ background-position: -48px; }
+#goodreads-icon a	{ background-position: -264px; }
+#lastfm-icon 	a 	{ background-position: -216px; }
+#spotify-icon 	a 	{ background-position: -24px; }
+#git-icon 		a 	{ background-position: -240px; }
+#linkedin-icon 	a 	{ background-position: -192px; }
+#profile-icon 	a 	{ background-position: -144px; }
+*/
+
+#goodreads-icon a	{ background-position: 0 -176px; }
+#git-icon 		a 	{ background-position: 0 -160px; }
+#lastfm-icon 	a 	{ background-position: 0 -144px; }
+#linkedin-icon 	a 	{ background-position: 0 -128px; }
+#email-icon 	a 	{ background-position: 0 -112px; }
+#profile-icon 	a 	{ background-position: 0 -97px; }
+#twitter-icon 	a 	{ background-position: 0 -32px; }
+#spotify-icon 	a 	{ background-position: 0 -16px; }
+
+
+/*
+ ############################################################################
+ HEADER
+ ############################################################################ 
+*/
+
+header {
+	margin: 0;
+	border: 0;
+}
+
+hgroup {
+	display: block;
+	height: 97px;
+	margin: 3px 260px 0 100px;
+	background: url('images/bgheader.png') repeat-x;
+	border-bottom: 3px solid black;
+}
+
+hgroup > h1 {
+	padding-top: 60px; /* height of the replacement image */
+    height: 0px;
+    overflow: hidden;
+    background-image: url("images/pesartain.png");
+    background-repeat: no-repeat;
+	position: relative;
+	top: 15px;
+	left: 10px;
+}
+
+hgroup > h2 {
+	width: 20%;
+	font-size: 10px;
+	font-style: italic;
+	float: right;
+}
+
+/*
+ ############################################################################
+ MAIN CONTENT
+ ############################################################################ 
+*/
+
+article {
+	display: block;
+	background: url('images/contentbg.png');
+	margin: 0 260px 0 100px;
+	padding: 15px 5px 10px 5px;
+}
+
+/*
+ ############################################################################
+ INFO SIDEBAR
+ ############################################################################ 
+*/
+
+section#info {
+	position: absolute;
+	right: 5px;
+	top: 50px;
+	width: 215px;
+	padding: 0 15px 0 20px;
+}
+
+#info > * {
+	background: __background__ url('images/background.png');
+}
+
+#info > #contact {
+	background: #474747;
+	border: 2px solid #b5b5b5;
+	padding: 5px;
+/*	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px*/
+	border-radius: 10px;
+}
+
+#info #tags a {
+	color: #5C5C5C;
+}
+
+#info #tags a:hover,
+#info > #contact a {
+	color: #b5b5b5;
+}
+
+#contact li {
+	color: #b5b5b5;
+	list-style: none;
+	background-image: url("images/favicons_16.png");
+	background-repeat: no-repeat;
+	padding: 0 0 0 18px;
+	height: 16px;
+	margin: 5px 0 0 0;
+}
+
+li#email-me	{ background-position: 0 -112px; margin: 0px;}
+li#twitter-me { background-position: 0 -32px; }
+li#blog-rss	{}
+li#site-rss	{}
+
+
+#info > #bio {
+	font-size: 80%;
+	margin-top: 20px;
+	border: 2px solid #b5b5b5;
+	padding: 3px;
+}
+
+#info > #tags {
+	margin-top: 20px;
+	border: 2px solid #b5b5b5;
+	padding: 3px;
+}
+
+/*
+ ############################################################################
+ FOOTER
+ ############################################################################ 
+*/
+
+footer {
+	display: block;
+	overflow: hidden;
+	margin: 0 250px 0 90px;
+	padding: 5px 5px 20px 5px;
+	background: #474747;
+	border: 2px solid #b5b5b5;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer > div {
+	float: left;
+	width: 22%;
+	margin: 20px 0 50px 2%;
+	border-right: 1px inset #5a5a5a;
+}
+
+div#about { border-right: none;}
+
+/*
+ * Image replacement
+ * http://www.kryogenix.org/code/browser/lir/
+ */
+footer > div > h1 {
+	padding-top: 8px; /* height of the replacement image */
+    height: 0px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+	position: relative;
+	background-image: url("images/footer-headers.png");
+	margin-bottom: 5px;
+}
+
+#music > h1 {
+	width: 47px;
+}
+
+#rl > h1 {
+	width: 76px;
+	background-position: -47px;
+}
+
+#comp > h1 {
+	width: 75px;
+	background-position: -122px;
+}
+
+#about > h1 {
+	width: 40px;
+	background-position: -198px;
+}
+
+
+footer:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+footer aside {
+	background: #5a5a5a;
+	color: #979797;
+	display: block;
+	padding: 5px;
+	margin-top: 15px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px
+}
+
+/*
+ ############################################################################
+ Progressive Enhancements
+ ############################################################################ 
+*/
+
+div#page {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('images/stripe.png') repeat-y;
+	z-index: -2;
+}
+
+img#topleft {
+	position: absolute;
+	z-index: -1;
+	top: 0px;
+	left: 0px;
+}
+
+img#bottomright {
+	position: absolute;
+	z-index: -1;
+	bottom: 0px;
+	right: 0px;
+}
+
+#fakefoot {
+		margin: 0 280px 0 80px;
+		padding: 0;
+}
+
+#fakefoot:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+#fakefoot footer {
+	height: 200px;
+	background: url('images/footerbg.png') repeat-x;
+	border: 0px;
+	padding: 0;
+	margin: 0 20px 0 20px;
+	float: left;
+	display: inline;
+	width: 100%;
+}
+
+#fakefoot > footer > div {
+	height: 180px;
+}
+
+#fakefoot > div {
+	width: 12px;
+	height: 200px;
+	position: absolute;
+	background-image: url('images/footer.png');
+	background-repeat: no-repeat;
+}
+
+#footerleft {
+	background-position: 0px;
+	left: 88px;
+}
+
+#footerright {
+	background-position: -13px;
+	right: 248px;
+}
+
+#bio > img { float: right; }
+
+#fakebio {
+	margin-top: 20px;
+	font-size: 80%;
+}
+
+#fakebio > section {
+	margin: 7px 15px 20px 15px;
+	float: left;
+	display: inline;
+}
+
+#faketags > nav {
+	margin: 7px 15px 0 15px;
+	float: left;
+	display: inline;
+}
+
+#fakebio:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+#faketags:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+#fakebio > div ,
+#faketags > div
+ {
+	width: 35px;
+	height: 113px;
+	position: absolute;
+	background-image: url('images/braces.png');
+	background-repeat: no-repeat;
+}
+
+#barleft { background-position: 0px; left: 0px;}
+#barright { background-position: -35px; right: 0px;}
+
+/*
+#contact span {
+	width: 16px;
+	height: 16px;
+	background-image: url("images/favicons.png");
+	display: block;
+	float: left;
+	margin: 2px;
+	opacity: .3;
+}
+
+#email-me > span { background-position: -168px; }
+#twitter-me > span 	{ background-position: -48px; }
+#blog-rss > span {}
+#site-rss > span {}
+*/
+
+/*
+ ############################################################################
+ Plugin Elements
+ ############################################################################ 
+*/
+
+div.dokuwiki div#cloud a.cloud5_tag2 { color:; }
