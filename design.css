@@ -45,6 +45,12 @@ body > a { display: none; }
 	color: #9a9a9a;
 }
 
+/* dokuwiki edit icons */
+.dokuwiki > ul {position: absolute; left: 5px; top: 300px;}
+.dokuwiki > ul > li a img {border: 0px;}
+.dokuwiki > ul > li img { opacity: 0.2; width: 16px; }
+.dokuwiki > ul > li a:hover img { opacity: 1; width: 24px; }
+
 /*
  ############################################################################
  MAIN NAVIGATION
@@ -229,9 +235,10 @@ section#info {
 	background: #474747;
 	border: 2px solid #b5b5b5;
 	padding: 5px;
-/*	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px*/
+	-moz-border-radius: 10px;
+/*	-webkit-border-radius: 10px*/
 	border-radius: 10px;
+	display: block;
 }
 
 #info #tags a {
@@ -264,12 +271,14 @@ li#site-rss	{}
 	margin-top: 20px;
 	border: 2px solid #b5b5b5;
 	padding: 3px;
+	display: block;
 }
 
 #info > #tags {
 	margin-top: 20px;
 	border: 2px solid #b5b5b5;
 	padding: 3px;
+	display: block;
 }
 
 /*
@@ -349,7 +358,8 @@ footer aside {
 	padding: 5px;
 	margin-top: 15px;
 	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px
+	/*-webkit-border-radius: 5px;*/
+	border-radius: 5px;
 }
 
 /*

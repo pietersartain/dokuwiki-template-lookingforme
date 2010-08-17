@@ -15,6 +15,11 @@
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 
+// multitemplate capable
+if (isset($DOKU_TPL)==FALSE) $DOKU_TPL = DOKU_TPL; 
+if (isset($DOKU_TPLINC)==FALSE) $DOKU_TPLINC = DOKU_TPLINC;
+if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme'; 
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang']?>"
@@ -62,7 +67,9 @@ if (!defined('DOKU_INC')) die();
 	</ul>
 
 	<ul id="icons">
+		<?php /**
 <!--	<li id="email-icon"><a href="email"><span>email</span></a></li>		-->
+		*/ ?>
 		<li id="twitter-icon"><a href="http://twitter.com/PieteSartain"><span>twitter</span></a></li>
 		<li id='goodreads-icon'><a href="goodreads"><span>goodreads</span></a></li>
 		<li id='lastfm-icon'><a href="lastfm"><span>lastfm</span></a></li>
@@ -131,10 +138,12 @@ if (!defined('DOKU_INC')) die();
 	<ul>
 		<li><a href="doku.php?id=diy">DIY</a></li>
 		<li><a href="doku.php?id=gaming">Gaming</a></li>
+		<?php /**
 		<!--<li><a href="doku.php?id=travelling">Travelling</a></li>-->
 		<!--<li><a href="">Finance</a></li>-->
 		<!--<li><a href="doku.php?id=">Organisation</a></li>-->
 		<!--<li><a href="doku.php?id=">Museum</a></li>-->
+		*/ ?>
 	</ul>
 	</div>
 	
@@ -152,8 +161,9 @@ if (!defined('DOKU_INC')) die();
 	<div id="about">
 	<h1>About</h1>
 	<ul>
-		<li>About me</li>
-		<li>Site disclaimer</li>
+		<li><a href="/about">About me</a></li>
+		<li><?php tpl_actionlink('index','','','Site map'); ?></li>
+		<li><a href="/disclaimer">Site disclaimer</a></li>
 	</ul>
 
 	<aside>
@@ -163,6 +173,14 @@ if (!defined('DOKU_INC')) die();
 	</div>
 
 </footer>
+
+<ul>
+	<li><?php tpl_actionlink('edit','','','<img src="'.$DOKU_TPL.'images/icons/icon_edit.png" title="Edit" alt="Edit"></img>'); ?></li>
+	<li><?php tpl_actionlink('history','','','<img src="'.$DOKU_TPL.'images/icons/icon_revisions.png" title="Old revisions" alt="Old revisions"></img>'); ?></li>
+	<li><?php tpl_actionlink('admin','','','<img src="'.$DOKU_TPL.'images/icons/icon_admin.png" title="Admin" alt="Admin"></img>'); ?></li>
+	<li><?php tpl_actionlink('profile','','','<img src="'.$DOKU_TPL.'images/icons/icon_profile.png" title="Profile" alt="Profile"></img>'); ?></li>
+	<li><?php tpl_actionlink('login','','','<img src="'.$DOKU_TPL.'images/icons/icon_login.png" title="Log In" alt="Log In"></img>'); ?></li>
+<ul>
 
 <div class="no"><?php /* provide DokuWiki housekeeping, required in all templates */ tpl_indexerWebBug()?></div>
 
