@@ -25,6 +25,10 @@ $(document).ready(function(){
 	$("#faketags").prepend("<div id='barleft'></div>");
 	$("#faketags").append("<div id='barright'></div>");
 	
+	$("#calendar").wrap("<div id='fakecalendar' />");
+	$("#fakecalendar").prepend("<div id='barleft'></div>");
+	$("#fakecalendar").append("<div id='barright'></div>");
+	
 	//$("#email-me").prepend("<span />");
 });
 

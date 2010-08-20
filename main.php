@@ -42,6 +42,12 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
   <script type="text/javascript" charset="utf-8" src="<?php echo DOKU_TPL?>jquery-1.4.2.min.js" ></script>
   <script type="text/javascript" charset="utf-8" src="<?php echo DOKU_TPL?>enhance.js" ></script>
 
+<?php
+	if (tpl_getConf('lookingforme')) {
+		echo '<link rel="stylesheet" media="all" type="text/css" href="'.DOKU_TPL.'"blog.css" />';
+	}
+?>
+
   <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.ico" />
 
 </head>
@@ -82,8 +88,16 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 
 <header>
 	<hgroup>
-		<h1>pesartain.com</h1>
-		<h2>where I remind myself what I've accomplished.</h2>
+		
+		<?php
+		if (tpl_getConf('lookingforme')) {
+			echo	"<h1>Looking For Me?</h1>
+					 <h2>where I remind myself what I've accomplished.</h2>";
+		} else {
+			echo	"<h1>pesartain.com</h1>
+					 <h2>where I remind myself what I've accomplished.</h2>";
+		}
+		?>
 	</hgroup>
 </header>
 
@@ -118,6 +132,12 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 		<?php tpl_include_page("sidebar") ?>
 	</nav>
 	
+<?php if (tpl_getConf('lookingforme')) { ?>
+	<nav id="calendar">
+
+	</nav>
+<?php } ?>
+
 </section>
 
   <?php flush()?>

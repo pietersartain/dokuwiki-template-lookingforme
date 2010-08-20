@@ -1,0 +1,22 @@
+/**
+ * NOT IE COMPATIBLE!
+ * 
+ * References:
+ * Float theory: http://www.smashingmagazine.com/2007/05/01/css-float-theory-things-you-should-know/
+ * Selectors (class, id, child, descendent): http://css.maxdesign.com.au/selectutorial/selectors_descendant.htm
+ * http://oli.jp/
+ * http://webdeveloper2.com/2008/05/experiment-2-semantic-blog-template-part-3/
+ * http://diveintohtml5.org/semantics.html
+ * http://www.kryogenix.org/code/browser/lir/
+ */
+
+hgroup > h1 {
+	padding-top: 60px; /* height of the replacement image */
+    height: 0px;
+    overflow: hidden;
+    background-image: url("images/pesartain.png");
+    background-repeat: no-repeat;
+	position: relative;
+	top: 15px;
+	left: 10px;
+}
