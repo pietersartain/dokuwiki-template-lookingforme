@@ -36,12 +36,12 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <link rel="stylesheet" media="screen" type="text/css" href="<?php echo DOKU_TPL ?>defaults.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="<?php echo $DOKU_TPL ?>defaults.css" />
 
   <?php tpl_metaheaders() ?>
   <?php /**/ ?>
-  <script type="text/javascript" charset="utf-8" src="<?php echo DOKU_TPL?>jquery-1.4.2.min.js" ></script>
-  <script type="text/javascript" charset="utf-8" src="<?php echo DOKU_TPL?>enhance.js" ></script>
+  <script type="text/javascript" charset="utf-8" src="<?php echo $DOKU_TPL?>jquery-1.4.2.min.js" ></script>
+  <script type="text/javascript" charset="utf-8" src="<?php echo $DOKU_TPL?>enhance.js" ></script>
   <?php /**/ ?>
 
 <?php /*
@@ -51,7 +51,7 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 	*/
 ?>
 
-  <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.ico" />
+  <link rel="shortcut icon" href="<?php echo $DOKU_TPL?>images/favicon.ico" />
 
 </head>
 
