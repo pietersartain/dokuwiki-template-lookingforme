@@ -20,6 +20,15 @@ if (isset($DOKU_TPL)==FALSE) $DOKU_TPL = DOKU_TPL;
 if (isset($DOKU_TPLINC)==FALSE) $DOKU_TPLINC = DOKU_TPLINC;
 if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme'; 
 
+function getRootNS($id){
+	$pos = strpos((string)$id,':');
+	if($pos!==false){
+		return substr((string)$id,0,$pos);
+	}
+	return false;
+}
+
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang']?>"
@@ -91,7 +100,21 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 	<hgroup>
 		
 		<?php
-		if (tpl_getConf('lookingforme')) {
+		/*
+		print_r(getID());
+		print("<br />");
+		print_r(noNSorNS(getID()));
+		print("<br />");
+		print_r(getNS(getID()));
+		print("<br />");
+		print_r(curNS(getID()));
+		print("<br />");
+		print_r(getRootNS(getID()));
+		print("<br />");
+		*/
+		
+		//if (tpl_getConf('lookingforme')) {
+		if ( (getRootNS(getID()) == 'blog') || (noNSorNS(getID()) == 'blog' ) ) {
 			echo	"<h1 class='blog'>Looking For Me?</h1>
 					 <h2>a blog where I make promises, tell stories and share experiences.</h2>";
 		} else {
