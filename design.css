@@ -97,6 +97,7 @@ span.breadcrumbs {
 	position: absolute;
 	top: 4px;
 	left: 5px;
+	display: inline;
 }
 
 .dokuwiki > nav ul {
@@ -236,10 +237,42 @@ article {
 section#info {
 	position: absolute;
 	right: 5px;
-	top: 50px;
+	top: 34px;
 	width: 215px;
 	padding: 0 15px 0 20px;
 }
+
+section#info > nav#search {
+	color: #b5b5b5;
+	background: #474747;
+	border: 2px solid #b5b5b5;
+	padding: 5px;
+	margin-bottom: 8px;
+	font-size: 80%;
+	-moz-border-radius: 10px;
+/*	-webkit-border-radius: 10px*/
+	border-radius: 10px;
+	display: block;
+}
+
+nav#search > p {
+	margin-bottom: 3px;
+}
+
+nav#search > form input {
+	background: #b5b5b5;
+}
+
+nav#search > form input.edit {
+	border: 1px solid #b5b5b5;
+	
+}
+
+nav#search > form input.button {
+	border: 0px;
+	margin: 0 0 0 5px;
+}
+	
 
 /*
 #info > * {
@@ -457,7 +490,7 @@ img#bottomright {
 #bio > img { float: right; }
 
 #fakebio {
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 80%;
 }
 

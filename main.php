@@ -114,6 +114,11 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 
 <section id="info">
 	
+	<nav id="search">
+		<p>Looking for something else?</p>
+		<?php tpl_searchform() ?>
+	</nav>
+	
 	<nav id="contact">
 		<ul>
 			<li id='email-me'>pe<del>anti</del>sartai<del>@mail</del>n@goog<del>harvesting</del>lema<del>obfuscation</del>il.com</li>
