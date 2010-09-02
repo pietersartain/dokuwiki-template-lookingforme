@@ -36,6 +36,8 @@ body {
 body > a { display: none; }
 #contact del { display: none;}
 
+div.dokuwiki {width: 100%; height: 100%;}
+
 .dokuwiki a { 
 	color: #5C5C5C; 
 	text-decoration: none;
@@ -46,10 +48,10 @@ body > a { display: none; }
 }
 
 /* dokuwiki edit icons */
-.dokuwiki > ul {position: absolute; left: 5px; top: 300px;}
-.dokuwiki > ul > li a img {border: 0px;}
-.dokuwiki > ul > li img { opacity: 0.2; width: 16px; }
-.dokuwiki > ul > li a:hover img { opacity: 1; width: 24px; }
+div.dokuwiki > ul {position: absolute; left: 5px; top: 300px;}
+div.dokuwiki > ul > li a img {border: 0px;}
+div.dokuwiki > ul > li img { opacity: 0.2; width: 16px; }
+div.dokuwiki > ul > li a:hover img { opacity: 1; width: 24px; }
 
 /*
  ############################################################################
@@ -182,11 +184,22 @@ hgroup {
 	border-bottom: 3px solid black;
 }
 
-hgroup > h1 {
+hgroup > h1.articles {
 	padding-top: 60px; /* height of the replacement image */
     height: 0px;
     overflow: hidden;
     background-image: url("images/pesartain.png");
+    background-repeat: no-repeat;
+	position: relative;
+	top: 15px;
+	left: 10px;
+}
+
+hgroup > h1.blog {
+	padding-top: 60px; /* height of the replacement image */
+    height: 0px;
+    overflow: hidden;
+    background-image: url("images/lookingforme.png");
     background-repeat: no-repeat;
 	position: relative;
 	top: 15px;
@@ -211,6 +224,7 @@ article {
 	background: url('images/contentbg.png');
 	margin: 0 260px 0 100px;
 	padding: 15px 5px 10px 5px;
+	overflow: auto;
 }
 
 /*
@@ -571,3 +585,4 @@ div.dokuwiki a.toc:hover,
 div.dokuwiki a.toc:active {
   color: __text__;
 }
+

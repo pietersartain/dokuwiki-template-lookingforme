@@ -10,13 +10,18 @@
  * http://www.kryogenix.org/code/browser/lir/
  */
 
-hgroup > h1 {
+hgroup > h1.blog {
 	padding-top: 60px; /* height of the replacement image */
     height: 0px;
     overflow: hidden;
-    background-image: url("images/pesartain.png");
+    background-image: url("images/lookingforme.png");
     background-repeat: no-repeat;
 	position: relative;
 	top: 15px;
 	left: 10px;
+}
+
+
+.blog {
+	border: 7px solid blue !important;
 }

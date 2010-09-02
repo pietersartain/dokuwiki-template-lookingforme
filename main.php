@@ -36,16 +36,19 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
+  <link rel="stylesheet" media="screen" type="text/css" href="<?php echo DOKU_TPL ?>defaults.css" />
 
   <?php tpl_metaheaders() ?>
-
+  <?php /**/ ?>
   <script type="text/javascript" charset="utf-8" src="<?php echo DOKU_TPL?>jquery-1.4.2.min.js" ></script>
   <script type="text/javascript" charset="utf-8" src="<?php echo DOKU_TPL?>enhance.js" ></script>
+  <?php /**/ ?>
 
-<?php
+<?php /*
 	if (tpl_getConf('lookingforme')) {
-		echo '<link rel="stylesheet" media="all" type="text/css" href="'.DOKU_TPL.'"blog.css" />';
+		echo '<link rel="stylesheet" media="screen" type="text/css" href='.$DOKU_TPL.'blog.css" />';
 	}
+	*/
 ?>
 
   <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.ico" />
@@ -53,8 +56,6 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 </head>
 
 <body>
-
-<a href="http://www.spamhelp.org/harvesterkiller/">Anti-Spam Bot link.</a>
 
 <div id="info">
 <?php html_msgarea()?>
@@ -67,7 +68,7 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 
 	<ul id="categories">
 		<li>[<a href="doku.php?id=music">music</a>]</li>
-		<li>[<a href="doku.php?id=rl">real life</a>]</li>
+		<li>[<a href="doku.php?id=tag:rl&do=showtag&tag=rl">real life</a>]</li>
 		<li>[<a href="doku.php?id=computing">computing</a>]</li>
 		<li>[<a href="doku.php?id=about">about</a>]</li>
 	</ul>
@@ -76,13 +77,13 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 		<?php /**
 <!--	<li id="email-icon"><a href="email"><span>email</span></a></li>		-->
 		*/ ?>
-		<li id="twitter-icon"><a href="http://twitter.com/PieteSartain"><span>twitter</span></a></li>
-		<li id='goodreads-icon'><a href="goodreads"><span>goodreads</span></a></li>
-		<li id='lastfm-icon'><a href="lastfm"><span>lastfm</span></a></li>
-		<li id='spotify-icon'><a href="spotify"><span>spotify</span></a></li>
-		<li id='git-icon'><a href="git"><span>git</span></a></li>
-		<li id='linkedin-icon'><a href="linkedin"><span>linkedin</span></a></li>
-		<li id='profile-icon'><a href="profile"><span>google profile</span></a></li>
+		<li id="twitter-icon"><a href="http://twitter.com/PieteSartain" rel='me'><span>twitter</span></a></li>
+		<li id='goodreads-icon'><a href="http://www.goodreads.com/piete" rel='me'><span>goodreads</span></a></li>
+		<li id='lastfm-icon'><a href="http://www.last.fm/user/lastfm_piete" rel='me'><span>lastfm</span></a></li>
+		<li id='spotify-icon'><a href="http://open.spotify.com/user/spotify_piete" rel='me'><span>spotify</span></a></li>
+		<li id='git-icon'><a href="http://github.com/piete" rel='me'><span>git</span></a></li>
+		<li id='linkedin-icon'><a href="http://uk.linkedin.com/in/pesartain" rel='me'><span>linkedin</span></a></li>
+		<li id='profile-icon'><a href="http://www.google.com/profiles/pesartain" rel='me'><span>google profile</span></a></li>
 	</ul>	
 </nav>
 
@@ -91,10 +92,10 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 		
 		<?php
 		if (tpl_getConf('lookingforme')) {
-			echo	"<h1>Looking For Me?</h1>
-					 <h2>where I remind myself what I've accomplished.</h2>";
+			echo	"<h1 class='blog'>Looking For Me?</h1>
+					 <h2>a blog where I make promises, tell stories and share experiences.</h2>";
 		} else {
-			echo	"<h1>pesartain.com</h1>
+			echo	"<h1 class='articles'>pesartain.com</h1>
 					 <h2>where I remind myself what I've accomplished.</h2>";
 		}
 		?>
@@ -104,18 +105,20 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
   <?php flush()?>
 
 <article id="content">
+  <div class="page">
 	<!-- wikipage start -->
 	<?php tpl_content()?>
 	<!-- wikipage stop -->
+  </div>
 </article>
 
 <section id="info">
 	
 	<nav id="contact">
 		<ul>
-			<li id='email-me'>pe<del>anti</del>sartai<del>@wibble.</del>n@goog<del>.com</del>lelma<del>.com</del>il.com</li>
+			<li id='email-me'>pe<del>anti</del>sartai<del>@mail</del>n@goog<del>harvesting</del>lema<del>obfuscation</del>il.com</li>
 			<li id='twitter-me'>
-				<a href="http://twitter.com/PieteSartain">the twitter</a></li>
+				<a href="http://twitter.com/PieteSartain" rel='me'>the twitter</a></li>
 			<li id='blog-rss'>
 				<a href="feed://pesartain.com/feed.php?ns=blog&num=10&linkto=current&content=html">blog rss</a></li>
 			<li id='site-rss'>
@@ -125,18 +128,20 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 	
 	<section id="bio">
 		<p>Who am I? I answer to Piete or Pieter and I try to be more than just my job title.</p>
-		<p>Browse my <a href="">blog</a>, read my <a href="">articles</a>, or listen to my <a href="">music</a>.</p>
+		<p>Browse my <a href="doku.php?id=blog">blog</a>, read <a href="doku.php?id=about">about me</a>, or listen to my <a href="doku.php?id=music">music</a>.</p>
 	</section>
 	
 	<nav id="tags">
 		<?php tpl_include_page("sidebar") ?>
 	</nav>
-	
+
+<?php /*
 <?php if (tpl_getConf('lookingforme')) { ?>
 	<nav id="calendar">
-
+		<?php tpl_include_page("calendar_sidebar") ?>
 	</nav>
 <?php } ?>
+*/ ?>
 
 </section>
 
@@ -148,7 +153,13 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 	<h1>Music</h1>
 	<ul>
 		<li><a href="http://projectchorus.pesartain.com">projectchorus</a></li>
+
+		<?php
+		/*
 		<li><a href="">Emily's Mistake</a></li>
+		*/
+		?>
+
 		<li><a href="doku.php?id=music">Hall of Fame</a></li>
 	</ul>
 	</div>
@@ -158,32 +169,40 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 	<ul>
 		<li><a href="doku.php?id=diy">DIY</a></li>
 		<li><a href="doku.php?id=gaming">Gaming</a></li>
-		<?php /**
-		<!--<li><a href="doku.php?id=travelling">Travelling</a></li>-->
-		<!--<li><a href="">Finance</a></li>-->
-		<!--<li><a href="doku.php?id=">Organisation</a></li>-->
-		<!--<li><a href="doku.php?id=">Museum</a></li>-->
-		*/ ?>
+		<?php 
+		/*
+		<li><a href="doku.php?id=travelling">Travelling</a></li>
+		<li><a href="">Finance</a></li>
+		<li><a href="doku.php?id=">Organisation</a></li>
+		<li><a href="doku.php?id=">Museum</a></li>
+		*/ 
+		?>
 	</ul>
 	</div>
 	
 	<div id="comp">
 	<h1>Computing</h1>
 	<ul>
-		<li><a href="doku.php?id=">Articles</a></li>
-		<li><a href="doku.php?id=">Web design</a></li>
-		<li><a href="doku.php?id=">Gaming</a></li>
+		<li><a href="doku.php?id=computing">Articles</a></li>
+		<li><a href="doku.php?id=websites">Web design</a></li>
+		
+		<?php
+		/*
+		<li><a href="doku.php?id=gaming">Gaming</a></li>
 		<li><a href="doku.php?id=">Source code</a></li>
 		<li><a href="doku.php?id=">Archive</a></li>
+		*/
+		?>
+		
 	</ul>
 	</div>
 	
 	<div id="about">
 	<h1>About</h1>
 	<ul>
-		<li><a href="/about">About me</a></li>
+		<li><a href="doku.php?id=about">About me</a></li>
 		<li><?php tpl_actionlink('index','','','Site map'); ?></li>
-		<li><a href="/disclaimer">Site disclaimer</a></li>
+		<li><a href="doku.php?id=disclaimer">Site disclaimer</a></li>
 	</ul>
 
 	<aside>
@@ -195,11 +214,11 @@ if (isset($CONF_TPL)==FALSE) $CONF_TPL = 'lookingforme';
 </footer>
 
 <ul>
-	<li><?php tpl_actionlink('edit','','','<img src="'.$DOKU_TPL.'images/icons/icon_edit.png" title="Edit" alt="Edit"></img>'); ?></li>
-	<li><?php tpl_actionlink('history','','','<img src="'.$DOKU_TPL.'images/icons/icon_revisions.png" title="Old revisions" alt="Old revisions"></img>'); ?></li>
-	<li><?php tpl_actionlink('admin','','','<img src="'.$DOKU_TPL.'images/icons/icon_admin.png" title="Admin" alt="Admin"></img>'); ?></li>
-	<li><?php tpl_actionlink('profile','','','<img src="'.$DOKU_TPL.'images/icons/icon_profile.png" title="Profile" alt="Profile"></img>'); ?></li>
-	<li><?php tpl_actionlink('login','','','<img src="'.$DOKU_TPL.'images/icons/icon_login.png" title="Log In" alt="Log In"></img>'); ?></li>
+	<li><?php tpl_actionlink('edit','','','<img src="'.$DOKU_TPL.'images/icons/icon_edit.png" title="Edit" alt="Edit" />'); ?></li>
+	<li><?php tpl_actionlink('history','','','<img src="'.$DOKU_TPL.'images/icons/icon_revisions.png" title="Old revisions" alt="Old revisions" />'); ?></li>
+	<li><?php tpl_actionlink('admin','','','<img src="'.$DOKU_TPL.'images/icons/icon_admin.png" title="Admin" alt="Admin" />'); ?></li>
+	<li><?php tpl_actionlink('profile','','','<img src="'.$DOKU_TPL.'images/icons/icon_profile.png" title="Profile" alt="Profile" />'); ?></li>
+	<li><?php tpl_actionlink('login','','','<img src="'.$DOKU_TPL.'images/icons/icon_login.png" title="Log In" alt="Log In" />'); ?></li>
 <ul>
 
 <div class="no"><?php /* provide DokuWiki housekeeping, required in all templates */ tpl_indexerWebBug()?></div>
