@@ -76,10 +76,11 @@ function getRootNS($id){
 	<span class="breadcrumbs"><?php tpl_youarehere(' &raquo; ') ?></span>
 
 	<ul id="categories">
-		<li>[<a href="doku.php?id=music">music</a>]</li>
-		<li>[<a href="doku.php?id=tag:rl&do=showtag&tag=rl">real life</a>]</li>
-		<li>[<a href="doku.php?id=computing">computing</a>]</li>
-		<li>[<a href="doku.php?id=about">about</a>]</li>
+		<li>[<?php tpl_pagelink(':blog') ?></li>
+		<li>[<?php tpl_pagelink(':music') ?>]</li>
+		<li>[<?php tpl_pagelink('tag:rl&do=showtag&tag=rl','real life') ?>]</li>
+		<li>[<?php tpl_pagelink('computing') ?>]<li>
+		<li>[<?php tpl_pagelink('about') ?>]</li>
 	</ul>
 
 	<ul id="icons">
@@ -115,11 +116,11 @@ function getRootNS($id){
 		
 		//if (tpl_getConf('lookingforme')) {
 		if ( (getRootNS(getID()) == 'blog') || (noNSorNS(getID()) == 'blog' ) ) {
-			echo	"<h1 class='blog'>Looking For Me?</h1>
-					 <h2>a blog where I make promises, tell stories and share experiences.</h2>";
+			echo '<h1 class="blog">Looking For Me?</h1>';
+			echo "<h2>a blog where I make promises, tell stories and share experiences.</h2>";
 		} else {
-			echo	"<h1 class='articles'>pesartain.com</h1>
-					 <h2>where I remind myself what I've accomplished.</h2>";
+			echo '<h1 class="articles">pesartain.com</h1>';
+			echo "<h2>where I remind myself what I've accomplished.</h2>";
 		}
 		?>
 	</hgroup>
@@ -156,7 +157,7 @@ function getRootNS($id){
 	
 	<section id="bio">
 		<p>Who am I? I answer to Piete or Pieter and I try to be more than just my job title.</p>
-		<p>Browse my <a href="doku.php?id=blog">blog</a>, read <a href="doku.php?id=about">about me</a>, or listen to my <a href="doku.php?id=music">music</a>.</p>
+		<p>Browse my <?php tpl_pagelink(':blog') ?>, read <?php tpl_pagelink(':about','about me') ?>, or listen to my <?php tpl_pagelink(':music') ?>.</p>
 	</section>
 	
 	<nav id="tags">
@@ -188,21 +189,22 @@ function getRootNS($id){
 		*/
 		?>
 
-		<li><a href="doku.php?id=music">Hall of Fame</a></li>
+		<li><?php tpl_pagelink(':music','Hall of Fame') ?></li>
 	</ul>
 	</div>
 	
 	<div id="rl">
 	<h1>Real Life</h1>
 	<ul>
-		<li><a href="doku.php?id=diy">DIY</a></li>
-		<li><a href="doku.php?id=gaming">Gaming</a></li>
+		<li><?php tpl_pagelink(':wedding','Wedding') ?>
+		<li><?php tpl_pagelink(':diy','DIY') ?></li>
+		<li><?php tpl_pagelink(':gaming','Gaming') ?></li>
 		<?php 
 		/*
-		<li><a href="doku.php?id=travelling">Travelling</a></li>
-		<li><a href="">Finance</a></li>
-		<li><a href="doku.php?id=">Organisation</a></li>
-		<li><a href="doku.php?id=">Museum</a></li>
+		<li><?php tpl_pagelink(':travelling','Travelling') ?></li>
+		<li><?php tpl_pagelink(':finance','Travelling') ?></li>
+		<li><?php tpl_pagelink(':organisation','Organisation') ?></li>
+		<li><?php tpl_pagelink(':museum','Museum') ?></li>
 		*/ 
 		?>
 	</ul>
@@ -211,14 +213,14 @@ function getRootNS($id){
 	<div id="comp">
 	<h1>Computing</h1>
 	<ul>
-		<li><a href="doku.php?id=computing">Articles</a></li>
-		<li><a href="doku.php?id=websites">Web design</a></li>
+		<li><?php tpl_pagelink(':computing','Articles') ?></li>
+		<li><?php tpl_pagelink(':websites','Web design') ?></li>
 		
 		<?php
 		/*
-		<li><a href="doku.php?id=gaming">Gaming</a></li>
-		<li><a href="doku.php?id=">Source code</a></li>
-		<li><a href="doku.php?id=">Archive</a></li>
+		<li><?php tpl_pagelink(':gaming','Gaming') ?></li>
+		<li><?php tpl_pagelink(':code','Source code') ?></li>
+		<li><?php tpl_pagelink(':archive','Archive') ?></li>
 		*/
 		?>
 		
@@ -228,9 +230,9 @@ function getRootNS($id){
 	<div id="about">
 	<h1>About</h1>
 	<ul>
-		<li><a href="doku.php?id=about">About me</a></li>
+		<li><?php tpl_pagelink(':about','About me') ?></li>
 		<li><?php tpl_actionlink('index','','','Site map'); ?></li>
-		<li><a href="doku.php?id=disclaimer">Site disclaimer</a></li>
+		<li><?php tpl_pagelink(':disclaimer','Disclaimer') ?></li>
 	</ul>
 
 	<aside>
