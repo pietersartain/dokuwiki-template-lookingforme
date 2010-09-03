@@ -78,9 +78,9 @@ function getRootNS($id){
 	<ul id="categories">
 		<li>[<?php tpl_pagelink(':blog') ?></li>
 		<li>[<?php tpl_pagelink(':music') ?>]</li>
-		<li>[<?php tpl_pagelink('tag:rl&do=showtag&tag=rl','real life') ?>]</li>
-		<li>[<?php tpl_pagelink('computing') ?>]<li>
-		<li>[<?php tpl_pagelink('about') ?>]</li>
+		<li>[<?php tpl_pagelink(':rl','real life') ?>]</li>
+		<li>[<?php tpl_pagelink(':computing') ?>]<li>
+		<li>[<?php tpl_pagelink(':about') ?>]</li>
 	</ul>
 
 	<ul id="icons">
