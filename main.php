@@ -1,14 +1,11 @@
 <?php
 /**
- * DokuWiki Default Template
+ * DokuWiki Looking For Me? Template
  *
- * This is the template you need to change for the overall look
- * of DokuWiki.
+ * @link   http://pesartain.com
+ * @author Pieter Sartain
  *
- * You should leave the doctype at the very top - It should
- * always be the very first line of a document.
- *
- * @link   http://dokuwiki.org/templates
+ * Based on the DokuWiki default template
  * @author Andreas Gohr <andi@splitbrain.org>
  */
 
@@ -36,8 +33,8 @@ function getRootNS($id){
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>
+    <?php echo strip_tags($conf['title'])?> ~ looking for me?
     <?php tpl_pagetitle()?>
-    [<?php echo strip_tags($conf['title'])?>]
   </title>
 
 
@@ -61,6 +58,7 @@ function getRootNS($id){
 ?>
 
   <link rel="shortcut icon" href="<?php echo $DOKU_TPL?>images/favicon.ico" />
+  <link rel="alternate" type="application/rss+xml" title="pesartain.com/blog ~ Looking for me?" href="http://feeds.feedburner.com/pesartaincom_blog" />
 
 </head>
 
@@ -149,9 +147,9 @@ function getRootNS($id){
 			<li id='twitter-me'>
 				<a href="http://twitter.com/PieteSartain" rel='me'>the twitter</a></li>
 			<li id='blog-rss'>
-				<a href="feed://pesartain.com/feed.php?ns=blog&num=10&linkto=current&content=html">blog rss</a></li>
+				<a href="http://feeds.feedburner.com/pesartaincom_blog">blog rss</a></li>
 			<li id='site-rss'>
-				<a href="feed://pesartain.com/feed.php?num=10&linkto=current&content=html">site change rss</a></li>
+				<a href="http://pesartain.com/feed.php?num=10&linkto=current&content=html">site change rss</a></li>
 		</ul>
 	</nav>
 	
