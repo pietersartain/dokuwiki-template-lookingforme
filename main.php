@@ -25,6 +25,13 @@ function getRootNS($id){
 	return false;
 }
 
+function isBlog() {
+    if ( (getRootNS(getID()) == 'blog') || (noNSorNS(getID()) == 'blog' ) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -74,7 +81,7 @@ function getRootNS($id){
 	<span class="breadcrumbs"><?php tpl_youarehere(' &raquo; ') ?></span>
 
 	<ul id="categories">
-		<li>[<?php tpl_pagelink(':blog') ?></li>
+		<li>[<?php tpl_pagelink(':blog') ?>]</li>
 		<li>[<?php tpl_pagelink(':music') ?>]</li>
 		<li>[<?php tpl_pagelink(':rl','real life') ?>]</li>
 		<li>[<?php tpl_pagelink(':computing') ?>]<li>
@@ -113,7 +120,7 @@ function getRootNS($id){
 		*/
 		
 		//if (tpl_getConf('lookingforme')) {
-		if ( (getRootNS(getID()) == 'blog') || (noNSorNS(getID()) == 'blog' ) ) {
+		if ( isBlog() ) {
 			echo '<h1 class="blog">Looking For Me?</h1>';
 			echo "<h2>a blog where I make promises, tell stories and share experiences.</h2>";
 		} else {
@@ -234,7 +241,7 @@ function getRootNS($id){
 	</ul>
 
 	<aside>
-		pesartain.com is the personal site of Pieter E Sartain. All content is Copyright 2002 - 2010.
+		pesartain.com is the personal site of Pieter E Sartain. All content is Copyright 2002 - 2011.
 	</aside>
 
 	</div>

@@ -1,10 +1,11 @@
 jQuery.noConflict()(function(){
 
-//jQuery(document).ready(function(){
 
-	jQuery("body").append("<img id='bottomright' src='"+DOKU_TPL+"images/pop.png' />");
-	jQuery("body").append("<img id='topleft' src='"+DOKU_TPL+"images/peek.png' />");
-	jQuery("body").prepend("<div id='page'></div>");
+
+//	jQuery("div.dokuwiki").prepend("<div id='page'></div>");
+	jQuery("div.dokuwiki").append("<img id='bottomright' src='"+DOKU_TPL+"images/minime.png' />");
+	jQuery("div.dokuwiki").append("<img id='topleft' src='"+DOKU_TPL+"images/peek.png' />");
+//	jQuery("div.dokuwiki").append("<img id='topleft-hand' src='"+DOKU_TPL+"images/peek-hand.png' />");
 		
 	jQuery("footer").wrap("<div id='fakefoot' />");
 	jQuery("#fakefoot").prepend("<div id='footerleft'></div>");
@@ -30,7 +31,16 @@ jQuery.noConflict()(function(){
 	jQuery("#fakecalendar").prepend("<div id='barleft'></div>");
 	jQuery("#fakecalendar").append("<div id='barright'></div>");
 	
-	//$("#email-me").prepend("<span />");
-//});
+    jQuery(document).ready(function(){
+        if (window.name != "slideded") {
+            jQuery("#info").delay(3000).slideUp(300);
+            window.name = "slideded";
+        } else {
+            jQuery("#info").hide();
+        }
+    });
+
+        //$("#email-me").prepend("<span />");
+
 
 });
