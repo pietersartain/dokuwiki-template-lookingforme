@@ -1,22 +1,13 @@
 jQuery.noConflict()(function(){
 
-
-
-//	jQuery("div.dokuwiki").prepend("<div id='page'></div>");
 	jQuery("div.dokuwiki").append("<img id='bottomright' src='"+DOKU_TPL+"images/minime.png' />");
 	jQuery("div.dokuwiki").append("<img id='topleft' src='"+DOKU_TPL+"images/peek.png' />");
-//	jQuery("div.dokuwiki").append("<img id='topleft-hand' src='"+DOKU_TPL+"images/peek-hand.png' />");
 		
 	jQuery("footer").wrap("<div id='fakefoot' />");
 	jQuery("#fakefoot").prepend("<div id='footerleft'></div>");
 	jQuery("#fakefoot").append("<div id='footerright'></div>");
 	
 	jQuery("aside").wrap("<div id='fakeaside' />");
-
-/*
-	$("#bio").prepend("<img id='left' src='/dokuwiki/lib/tpl/lookingforme/images/pop.png' />");
-	$("#bio").prepend("<img id='right' src='/dokuwiki/lib/tpl/lookingforme/images/pop.png' />");
-*/
 
 	jQuery("#bio").wrap("<div id='fakebio' />");
 	jQuery("#fakebio").prepend("<div id='barleft'></div>");
@@ -39,8 +30,4 @@ jQuery.noConflict()(function(){
             jQuery("#info").hide();
         }
     });
-
-        //$("#email-me").prepend("<span />");
-
-
 });
